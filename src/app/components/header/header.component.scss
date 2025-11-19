@@ -5,8 +5,9 @@
 }
 
 :host {
-  --nav-background-color: orange;
+  --nav-background-color: rgb(181, 138, 59);
   --nav-item-color: rgb(231, 84, 84);
+  --nav-link-color: rgb(172, 63, 63);
 
   @include mat.toolbar-overrides(
     (
@@ -19,17 +20,16 @@
 
   @include mat.button-overrides(
     (
-      container-color: var(--nav-item-color),
-      container-elevation-shadow: -4px -4px 5px 0px rgba(0, 0, 0, 0.5),
+      filled-container-color: var(--nav-item-color),
     )
   );
 
   .title-link {
     text-decoration: none;
-    color: var(--nav-item-color);
+    color: var(--nav-link-color);
     border: 3px solid rgba(0, 0, 0, 0.3);
     border-radius: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.75rem;
     @include withPointer();
   }
 

@@ -1,0 +1,57 @@
+@use "@angular/material" as mat;
+
+:host {
+  --filter-color: rgb(197, 96, 96);
+  --filter-background-color: rgb(222, 153, 153);
+
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  @include mat.fab-overrides(
+    (
+      small-container-color: var(--filter-color),
+      small-state-layer-color: red,
+    )
+  );
+
+  @include mat.button-toggle-overrides(
+    (
+      selected-state-background-color: var(--filter-background-color),
+    )
+  );
+
+  .filter-input-container {
+    background-color: var(--filter-background-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+  }
+
+  .filter-label {
+    display: flex;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .filter-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    background-color: wheat;
+  }
+
+  .filter-reset {
+    cursor: pointer;
+    margin-left: 0.25rem;
+  }
+}

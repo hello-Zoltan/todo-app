@@ -6,3 +6,40 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:root {
+	--app-header-height: 64px;
+}
+
+app-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: var(--app-header-height);
+	z-index: 1000;
+}
+
+.main-content {
+	padding-top: var(--app-header-height);
+	height: calc(100vh - var(--app-header-height));
+	overflow: hidden;
+}
+
+.dashboard {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+app-filter-bar {
+	flex: 0 0 auto;
+	z-index: 900;
+}
+
+app-todo-list {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}

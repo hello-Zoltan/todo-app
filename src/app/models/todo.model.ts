@@ -1,4 +1,4 @@
-export type TodoState = 'active' | 'closed';
+export type TodoState = 'open' | 'done';
 
 export interface Todo {
   id: string;
