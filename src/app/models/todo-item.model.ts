@@ -1,0 +1,1 @@
+export type TodoItemMode = 'view' | 'edit';

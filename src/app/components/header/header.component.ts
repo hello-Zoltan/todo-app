@@ -1,0 +1,14 @@
+import { Component, input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-header',
+  imports: [MatButtonModule, MatToolbarModule, RouterLink],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
+})
+export class HeaderComponent {
+  title = input.required<string>();
+}

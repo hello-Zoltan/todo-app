@@ -1,0 +1,9 @@
+.item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(102, 255, 51);
+    margin: 1rem 20rem;
+    gap: 1rem;
+}

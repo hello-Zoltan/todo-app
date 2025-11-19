@@ -1,0 +1,49 @@
+@use "@angular/material" as mat;
+
+@mixin withPointer {
+  cursor: pointer;
+}
+
+:host {
+  --nav-background-color: orange;
+  --nav-item-color: rgb(231, 84, 84);
+
+  @include mat.toolbar-overrides(
+    (
+      container-background-color: var(--nav-background-color),
+      container-text-color: var(--nav-item-color),
+      title-text-weight: bold,
+      title-text-size: 32px,
+    )
+  );
+
+  @include mat.button-overrides(
+    (
+      container-color: var(--nav-item-color),
+      container-elevation-shadow: -4px -4px 5px 0px rgba(0, 0, 0, 0.5),
+    )
+  );
+
+  .title-link {
+    text-decoration: none;
+    color: var(--nav-item-color);
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    @include withPointer();
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .header-link {
+    @include withPointer();
+  }
+}
