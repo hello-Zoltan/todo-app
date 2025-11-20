@@ -1,5 +1,5 @@
 <div>
-    @for (todo of todos(); track todo.id) {
+    @for (todo of todos(); track todo.uuid) {
         <app-todo-item [todo]="todo" />
     }
 </div>

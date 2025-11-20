@@ -1,0 +1,11 @@
+  @use "@angular/material" as mat;
+
+:host {
+  --filter-background-color: rgb(222, 153, 153);
+  
+  @include mat.button-toggle-overrides(
+    (
+      selected-state-background-color: var(--filter-background-color),
+    )
+  );
+}

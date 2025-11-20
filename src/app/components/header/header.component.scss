@@ -7,7 +7,6 @@
 :host {
   --nav-background-color: rgb(181, 138, 59);
   --nav-item-color: rgb(231, 84, 84);
-  --nav-link-color: rgb(172, 63, 63);
 
   @include mat.toolbar-overrides(
     (
@@ -26,7 +25,8 @@
 
   .title-link {
     text-decoration: none;
-    color: var(--nav-link-color);
+    background-color: rgb(223, 192, 134);
+    color: var(--nav-item-color);
     border: 3px solid rgba(0, 0, 0, 0.3);
     border-radius: 0.5rem;
     padding: 0.75rem;

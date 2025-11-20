@@ -1,7 +1,8 @@
 export type TodoState = 'open' | 'done';
 
 export interface Todo {
-  id: string;
+  uuid: string;
+  index: number;
   content: string;
   state: TodoState;
 }

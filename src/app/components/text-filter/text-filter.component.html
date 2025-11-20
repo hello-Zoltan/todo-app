@@ -1,0 +1,17 @@
+<div class="filter-input-container">
+  <div class="filter-label" for="filter-input">Filter</div>
+  <input
+    #textFilterInput
+    (input)="onInputChange(textFilterInput.value)"
+    class="filter-input"
+    name="filter-input"
+    type="text"
+  />
+  <button
+    mat-mini-fab
+    class="filter-reset"
+    (click)="textFilterInput.value = ''; resetFilter()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

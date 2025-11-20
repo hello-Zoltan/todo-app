@@ -1,4 +1,8 @@
 <div class="dashboard">
-    <app-filter-bar></app-filter-bar>
-    <app-todo-list [todos]="todoService.todos()"></app-todo-list>
+    <app-filter-bar>
+        <app-text-filter (textFilter)="onTextFilterChanged($event)" />
+        <app-state-filter (stateFilter)="onStateFilterChanged($event)" />
+    </app-filter-bar>
+    <app-paging [pageLength]="todoService.filteredTodos().length" [pageSize]="todoService.pageSize()" (pageTo)="onPageTo($event)" />
+    <app-todo-list [todos]="todoService.paginatedTodos()" />
 </div>
