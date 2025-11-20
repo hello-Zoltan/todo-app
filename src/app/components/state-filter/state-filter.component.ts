@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import {
   MatButtonToggleChange,
   MatButtonToggleModule,
@@ -10,6 +10,7 @@ import { StateFilter } from '../../models/filter.model';
   imports: [MatButtonToggleModule],
   templateUrl: './state-filter.component.html',
   styleUrl: './state-filter.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StateFilterComponent {
   readonly stateFilter = output<StateFilter>();

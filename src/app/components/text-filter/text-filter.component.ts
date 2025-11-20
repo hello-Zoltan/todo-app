@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule, FormsModule, MatButtonModule],
   templateUrl: './text-filter.component.html',
   styleUrl: './text-filter.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextFilterComponent {
   readonly textFilter = output<string>();

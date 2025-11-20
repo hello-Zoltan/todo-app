@@ -1,0 +1,32 @@
+<h2 class="dialog-background" mat-dialog-title>{{`${data.type === 'add' ? 'Add Todo' : 'Edit Todo'}`}}</h2>
+<mat-dialog-content class="dialog-content">
+
+  <form id="todoForm" #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+    <mat-form-field class="text-form-field">
+      <mat-label>Todo content</mat-label>
+      <textarea
+        matInput
+        name="content"
+        ngModel
+        required
+        #contentControl="ngModel"
+      ></textarea>
+    </mat-form-field>
+
+    @if (contentControl.hasError('required') && contentControl.touched) {
+    <mat-error>Todo content is <strong>required</strong></mat-error>
+    }
+
+    <mat-form-field class="select-form-field">
+      <mat-label>Todo type</mat-label>
+      <mat-select required name="state" [(ngModel)]="selectedState">
+        <mat-option value="open">Open</mat-option>
+        <mat-option value="done">Done</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button form="todoForm" type="submit" cdkFocusInitial>{{ data.type === 'add' ? 'Add' : 'Change' }}</button>
+</mat-dialog-actions>

@@ -17,8 +17,6 @@ export class TodoService {
     Math.ceil(this.filteredTodos().length / this.pageSize())
   );
 
-  private readonly allTodos = this.todosData.asReadonly();
-  
   readonly filteredTodos = computed(() => {
     const allTodos = this.todosData();
     const stateFilter = this.stateFilter();
@@ -35,7 +33,7 @@ export class TodoService {
   private readonly stateFilter = signal<StateFilter>('all');
   private readonly textFilter = signal<string>('');
 
-  readonly paginatedTodos = computed(() => { 
+  readonly paginatedTodos = computed(() => {
     const start = this.currentPage() * this.pageSize();
     const end = start + this.pageSize();
     return this.filteredTodos().slice(start, end);
@@ -55,5 +53,17 @@ export class TodoService {
   setStateFilter(state: StateFilter): void {
     this.stateFilter.set(state);
     this.currentPage.set(0);
+  }
+
+  addTodo(newTodo: Todo): void {
+    this.todosData.update((todos) => {
+      const reindexedArray = todos.map((todo: Todo) => {
+        return {
+          ...todo,
+          index: todo.index + 1,
+        };
+      });
+      return [{...newTodo, index: 1}, ...reindexedArray];
+    });
   }
 }

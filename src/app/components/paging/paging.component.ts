@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -6,6 +6,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
   imports: [MatPaginatorModule],
   templateUrl: './paging.component.html',
   styleUrl: './paging.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PagingComponent {
   readonly pageLength = input.required<number>();
@@ -13,8 +14,6 @@ export class PagingComponent {
   readonly pageTo = output<number>();
 
   protected onPaging(event: PageEvent): void {
-    /* eslint-disable no-console */
-    console.log('page event: ', event);
     this.pageTo.emit(event.pageIndex);
   }
 }

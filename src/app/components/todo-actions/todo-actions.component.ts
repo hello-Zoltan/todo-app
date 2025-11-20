@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatIconModule, MatButtonModule],
   templateUrl: './todo-actions.component.html',
   styleUrl: './todo-actions.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoActionsComponent {
   onEdit() {

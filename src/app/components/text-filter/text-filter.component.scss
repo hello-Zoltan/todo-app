@@ -5,7 +5,6 @@
   --filter-background-color: rgb(222, 153, 153);
 
   display: flex;
-  // flex: 1 1 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -14,8 +13,8 @@
 
   @include mat.fab-overrides(
     (
-      small-container-color: var(--filter-color),
-      small-state-layer-color: red,
+      small-container-color: rgb(255, 146, 146),
+      small-foreground-color: darkred
     )
   );
 
