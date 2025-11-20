@@ -1,9 +1,22 @@
-.item-container {
+:host {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid rgb(102, 255, 51);
-    margin: 1rem 20rem;
-    gap: 1rem;
+    width: 12rem;
+    height: 12rem;
+    border: 1px solid rgb(150, 142, 142);
+    border-radius: 0.5rem;
+
+    .todo-content-wrapper {
+        display: flex;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .todo-item-actions {
+        display: flex;
+        width: 100%;
+        flex: 0 0 20%;
+    }
 }

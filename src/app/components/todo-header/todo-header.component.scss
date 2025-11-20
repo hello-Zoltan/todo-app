@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+
+  .title {
+    justify-content: flex-start;
+    align-self: center;
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .state-marker {
+    margin-right: 0.5rem;
+  }
+
+  &.todo-header {
+    &--open {
+      background-color: lightgreen;
+    }
+    &--done {
+      background-color: lightpink;
+    }
+  }
+}

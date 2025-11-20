@@ -1,0 +1,17 @@
+@use "@angular/material" as mat;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+
+  .warn {
+    @include mat.theme(
+      (
+        color: mat.$red-palette,
+      )
+    );
+  }
+}
