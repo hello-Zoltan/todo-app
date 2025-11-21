@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogChangeTodoComponent } from './change-dialog.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('DialogChangeTodoComponent', () => {
   let component: DialogChangeTodoComponent;
@@ -13,6 +14,7 @@ describe('DialogChangeTodoComponent', () => {
       providers: [
         { provide: MatDialogRef, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: [] },
+        provideExperimentalZonelessChangeDetection()
       ],
     }).compileComponents();
 

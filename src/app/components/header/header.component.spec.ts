@@ -2,7 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 import { provideRouter } from '@angular/router';
-import { ComponentRef } from '@angular/core';
+import {
+  ComponentRef,
+  provideExperimentalZonelessChangeDetection,
+} from '@angular/core';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -12,9 +15,11 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
-      providers: [provideRouter([])],
-    })
-    .compileComponents();
+      providers: [
+        provideRouter([]),
+        provideExperimentalZonelessChangeDetection(),
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;

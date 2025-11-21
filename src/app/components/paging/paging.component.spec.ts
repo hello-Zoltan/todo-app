@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PagingComponent } from './paging.component';
-import { ComponentRef } from '@angular/core';
+import { ComponentRef, provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('PagingComponent', () => {
   let component: PagingComponent;
@@ -11,6 +11,9 @@ describe('PagingComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PagingComponent],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PagingComponent);

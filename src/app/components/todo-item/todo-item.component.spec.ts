@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoItemComponent } from './todo-item.component';
-import { ComponentRef } from '@angular/core';
+import { ComponentRef, provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
@@ -10,7 +10,10 @@ describe('TodoItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodoItemComponent]
+      imports: [TodoItemComponent],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
+      ]
     })
     .compileComponents();
 

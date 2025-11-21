@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StateFilterComponent } from './state-filter.component';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('StateFilterComponent', () => {
   let component: StateFilterComponent;
@@ -8,7 +9,10 @@ describe('StateFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StateFilterComponent]
+      imports: [StateFilterComponent],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
+      ]
     })
     .compileComponents();
 

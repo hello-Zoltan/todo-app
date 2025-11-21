@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
-import { ActivatedRoute, provideRouter } from '@angular/router';
+import { provideRouter } from '@angular/router';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -10,9 +11,11 @@ describe('DashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DashboardComponent],
-      providers: [provideRouter([])]
-    })
-    .compileComponents();
+      providers: [
+        provideRouter([]),
+        provideExperimentalZonelessChangeDetection(),
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;

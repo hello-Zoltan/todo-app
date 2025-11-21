@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextFilterComponent } from './text-filter.component';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('TextFilterComponent', () => {
   let component: TextFilterComponent;
@@ -8,7 +9,10 @@ describe('TextFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TextFilterComponent]
+      imports: [TextFilterComponent],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
+      ]
     })
     .compileComponents();
 

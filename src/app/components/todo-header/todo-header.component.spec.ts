@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoHeaderComponent } from './todo-header.component';
-import { ComponentRef } from '@angular/core';
+import { ComponentRef, provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('TodoHeaderComponent', () => {
   let component: TodoHeaderComponent;
@@ -10,7 +10,10 @@ describe('TodoHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TodoHeaderComponent]
+      imports: [TodoHeaderComponent],
+      providers: [
+        provideExperimentalZonelessChangeDetection()
+      ]
     })
     .compileComponents();
 
