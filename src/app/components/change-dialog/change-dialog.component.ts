@@ -15,7 +15,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDividerModule } from '@angular/material/divider';
 import { Todo, TodoState } from '../../models/todo.model';
 import { generateUniqueId } from '../../utils/id-generation-util';
 
@@ -27,7 +26,6 @@ import { generateUniqueId } from '../../utils/id-generation-util';
     FormsModule,
     MatInputModule,
     MatSelectModule,
-    MatDividerModule,
   ],
   templateUrl: './change-dialog.component.html',
   styleUrl: './change-dialog.component.scss',
@@ -49,10 +47,14 @@ export class DialogChangeTodoComponent {
   protected readonly localState = signal<TodoState>('open');
   protected readonly localContent = signal('');
 
+  protected readonly editTitle = signal('')
+  protected readonly addTitle = signal('Add Todo');
+
   constructor() {
     if (this.data.type === 'edit') {
       this.localContent.set(this.data.todo.content);
-      this.localContent.set(this.data.todo.content);
+      this.editTitle.set(`Edit Todo: #${this.data.todo.index}`);
+      this.localState.set(this.data.todo.state);
     }
   }
 

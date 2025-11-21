@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { DialogService } from '../../services/dialog.service';
-import { Todo, TodoState } from '../../models/todo.model';
+import { Todo } from '../../models/todo.model';
 
 @Component({
   selector: 'app-header',
@@ -25,14 +25,16 @@ export class HeaderComponent {
   readonly changedTodo = output<Todo>();
 
   protected addNewTodo(): void {
-    const dialogRef = this.dialogService.openDialog({
+    const dialogRef = this.dialogService.openModificationDialog({
       type: 'add',
     });
 
     dialogRef
       .afterClosed()
       .subscribe((result: Todo) => {
-        this.changedTodo.emit(result);
+        if (result) {
+          this.changedTodo.emit(result);
+        }
       });
   }
 }

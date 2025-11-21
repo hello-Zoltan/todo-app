@@ -19,9 +19,14 @@ import { TodoActionsComponent } from '../todo-actions/todo-actions.component';
 })
 export class TodoItemComponent {
   readonly todo = input.required<Todo>();
-  readonly editTodo = output<Todo>()
+  readonly editTodo = output<Todo>();
+  readonly deleteTodo = output<Todo>();
 
   protected onEditTodo(): void {
     this.editTodo.emit(this.todo());
+  }
+
+  protected onDeleteTodo(): void {
+    this.deleteTodo.emit(this.todo());
   }
 }

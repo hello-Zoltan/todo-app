@@ -1,6 +1,6 @@
-<h2 class="dialog-background" mat-dialog-title>{{`${data.type === 'add' ? 'Add Todo' : 'Edit Todo'}`}}</h2>
+@let titleContent = data.type === 'add' ? addTitle() : editTitle();
+<h2 class="dialog-background" mat-dialog-title>{{ titleContent }}</h2>
 <mat-dialog-content class="dialog-content">
-
   <form id="todoForm" #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
     <mat-form-field class="text-form-field">
       <mat-label>Todo content</mat-label>
@@ -28,5 +28,7 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button form="todoForm" type="submit" cdkFocusInitial>{{ data.type === 'add' ? 'Add' : 'Change' }}</button>
+  <button mat-button form="todoForm" type="submit" [disabled]="todoForm.invalid || todoForm.pristine">
+    {{ data.type === "add" ? "Add" : "Change" }}
+  </button>
 </mat-dialog-actions>

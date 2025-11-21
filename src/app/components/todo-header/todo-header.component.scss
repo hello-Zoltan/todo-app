@@ -23,10 +23,10 @@
 
   &.todo-header {
     &--open {
-      background-color: lightgreen;
+      background-color: rgb(245, 224, 132);
     }
     &--done {
-      background-color: lightpink;
+      background-color: darkgray;
     }
   }
 }

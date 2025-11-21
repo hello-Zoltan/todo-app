@@ -1,1 +1,10 @@
-<p>dialog-delete-todo works!</p>
+<h2 class="dialog-background" mat-dialog-title>
+  {{`Delete Todo: #${data.index}`}}
+</h2>
+<mat-dialog-content class="dialog-content">
+  {{`Are you sure you want to delete the following todo? #${data.index}`}}
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Delete</button>
+</mat-dialog-actions>

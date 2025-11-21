@@ -2,4 +2,4 @@
 <app-todo-content>
     <div class="todo-content-wrapper">{{ todo().content }}</div>
 </app-todo-content>
-<app-todo-actions (editTodo)="onEditTodo()"></app-todo-actions>
+<app-todo-actions (editTodo)="onEditTodo()" (deleteTodo)="onDeleteTodo()"></app-todo-actions>

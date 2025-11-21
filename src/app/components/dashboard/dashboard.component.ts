@@ -52,4 +52,8 @@ export class DashboardComponent {
   protected onChangeTodo(changedTodo: Todo): void {
     this.todoService.changeTodo(changedTodo);
   }
+
+  protected onDeleteTodo(todoToDelete: Todo): void {
+    this.todoService.deleteTodo(todoToDelete);
+  }
 }

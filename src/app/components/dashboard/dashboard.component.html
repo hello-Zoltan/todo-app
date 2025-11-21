@@ -5,5 +5,5 @@
         <app-state-filter (stateFilter)="onStateFilterChanged($event)" />
     </app-filter-bar>
     <app-paging [pageLength]="todoService.filteredTodos().length" [pageSize]="todoService.pageSize()" (pageTo)="onPageTo($event)" />
-    <app-todo-list [todos]="todoService.paginatedTodos()" (changeTodo)="onChangeTodo($event)" />
+    <app-todo-list [todos]="todoService.paginatedTodos()" (changeTodo)="onChangeTodo($event)" (deleteTodo)="onDeleteTodo($event)" />
 </div>

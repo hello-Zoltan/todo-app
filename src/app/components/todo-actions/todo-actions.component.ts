@@ -11,11 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class TodoActionsComponent {
   readonly editTodo = output<void>();
+  readonly deleteTodo = output<void>();
   
   protected onEdit(): void {
     this.editTodo.emit();
   }
 
   protected onDelete(): void {
+    this.deleteTodo.emit();
   }
 }
