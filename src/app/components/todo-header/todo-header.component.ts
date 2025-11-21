@@ -17,7 +17,7 @@ export class TodoHeaderComponent {
   readonly state = input.required<TodoState>();
 
   protected readonly stateIcon = computed(() =>
-    this.state() === 'open' ? 'pending_actions' : 'task'
+    this.state() === 'open' ? 'schedule' : 'check'
   );
 
   protected readonly hostClasses = computed(() => {
