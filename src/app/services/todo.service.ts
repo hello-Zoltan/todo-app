@@ -56,7 +56,7 @@ export class TodoService {
   }
 
   addTodo(newTodo: Todo): void {
-    this.todosData.update((todos) => {
+    this.todosData.update((todos: Todo[]) => {
       const reindexedArray = todos.map((todo: Todo) => {
         return {
           ...todo,
@@ -65,5 +65,11 @@ export class TodoService {
       });
       return [{...newTodo, index: 1}, ...reindexedArray];
     });
+  }
+
+  changeTodo(changedTodo: Todo): void {
+    this.todosData.update((todos: Todo[]) => {
+      return todos.map(todo => todo.uuid === changedTodo.uuid ? changedTodo : todo);
+    })
   }
 }

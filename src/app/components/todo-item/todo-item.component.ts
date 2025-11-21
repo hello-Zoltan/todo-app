@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { Todo } from '../../models/todo.model';
 import { TodoItemMode } from '../../models/todo-item.model';
 import { TodoHeaderComponent } from '../todo-header/todo-header.component';
@@ -14,5 +19,9 @@ import { TodoActionsComponent } from '../todo-actions/todo-actions.component';
 })
 export class TodoItemComponent {
   readonly todo = input.required<Todo>();
-  readonly mode = input<TodoItemMode>('view');
+  readonly editTodo = output<Todo>()
+
+  protected onEditTodo(): void {
+    this.editTodo.emit(this.todo());
+  }
 }

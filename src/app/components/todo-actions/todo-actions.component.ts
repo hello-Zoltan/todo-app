@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -10,8 +10,12 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoActionsComponent {
-  onEdit() {
+  readonly editTodo = output<void>();
+  
+  protected onEdit(): void {
+    this.editTodo.emit();
   }
-  onDelete() {
+
+  protected onDelete(): void {
   }
 }

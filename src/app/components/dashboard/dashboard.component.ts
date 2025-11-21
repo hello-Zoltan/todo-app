@@ -48,4 +48,8 @@ export class DashboardComponent {
   protected onCreateTodo(newTodo: Todo): void {
     this.todoService.addTodo(newTodo);
   }
+
+  protected onChangeTodo(changedTodo: Todo): void {
+    this.todoService.changeTodo(changedTodo);
+  }
 }

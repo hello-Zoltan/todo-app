@@ -7,7 +7,7 @@
       <textarea
         matInput
         name="content"
-        ngModel
+        [(ngModel)]="localContent"
         required
         #contentControl="ngModel"
       ></textarea>
@@ -19,7 +19,7 @@
 
     <mat-form-field class="select-form-field">
       <mat-label>Todo type</mat-label>
-      <mat-select required name="state" [(ngModel)]="selectedState">
+      <mat-select required name="state" [(ngModel)]="localState">
         <mat-option value="open">Open</mat-option>
         <mat-option value="done">Done</mat-option>
       </mat-select>

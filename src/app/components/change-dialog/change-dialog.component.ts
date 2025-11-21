@@ -1,4 +1,9 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  inject,
+  ChangeDetectionStrategy,
+  signal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MAT_DIALOG_DATA,
@@ -37,22 +42,46 @@ import { generateUniqueId } from '../../utils/id-generation-util';
   ],
 })
 export class DialogChangeTodoComponent {
-  private dialogRef: MatDialogRef<DialogChangeTodoComponent> = inject(MatDialogRef);
+  private dialogRef: MatDialogRef<DialogChangeTodoComponent> =
+    inject(MatDialogRef);
   protected data: ModificationDialogDataInput = inject(MAT_DIALOG_DATA);
-  
-  protected readonly selectedState: TodoState = 'open';
 
-  protected onSubmit(form: NgForm): void {
-    const returnValue = this.data.type === 'add' ? this.createTodo(form.value): null;
-    this.dialogRef.close(returnValue);
+  protected readonly localState = signal<TodoState>('open');
+  protected readonly localContent = signal('');
+
+  constructor() {
+    if (this.data.type === 'edit') {
+      this.localContent.set(this.data.todo.content);
+      this.localContent.set(this.data.todo.content);
+    }
   }
 
-  private createTodo(inputs: {content: string, state: TodoState}): Todo {
+  private createTodo(inputs: { content: string; state: TodoState }): Todo {
     return {
       index: -1,
       uuid: generateUniqueId(),
       content: inputs.content,
-      state: inputs.state
+      state: inputs.state,
+    };
+  }
+
+  private modifyTodo(inputs: { content: string; state: TodoState }): Todo | null {
+    let returnValue: Todo | null = null;
+
+    if (this.data.type === 'edit') {
+      returnValue = {
+        index: this.data.todo.index,
+        uuid: this.data.todo.uuid,
+        content: inputs.content,
+        state: inputs.state,
+      };
     }
+    return returnValue;
+  }
+
+  protected onSubmit(form: NgForm): void {
+    const returnValue =
+      this.data.type === 'add' ? this.createTodo(form.value) : this.modifyTodo(form.value);
+    this.dialogRef.close(returnValue);
   }
 }
