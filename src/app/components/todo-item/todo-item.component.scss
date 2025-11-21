@@ -1,16 +1,19 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 12rem;
-    height: 12rem;
-    border: 1px solid rgb(150, 142, 142);
-    border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 12rem;
+  height: 12rem;
+  border: 1px solid rgb(150, 142, 142);
+  border-radius: 0.5rem;
 
-    .todo-content-wrapper {
-        display: flex;
-        width: 100%;
-        padding: 0.5rem;
-    }
+  .todo-content-wrapper {
+    display: inline-block;
+    width: 11rem;
+    padding: 0.5rem;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
