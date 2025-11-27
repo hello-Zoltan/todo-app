@@ -8,10 +8,16 @@
   width: 100%;
 
   .warn {
-    @include mat.theme(
-      (
-        color: mat.$red-palette,
-      )
-    );
+    @include mat.button-overrides((
+      text-label-text-color: red,
+      text-state-layer-color: red,
+    ))
+  }
+
+  .normal {
+    @include mat.button-overrides((
+      text-label-text-color: black,
+      text-state-layer-color: black,
+    ))
   }
 }
